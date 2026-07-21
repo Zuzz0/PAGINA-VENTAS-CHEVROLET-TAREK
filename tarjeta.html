@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#082f5b">
+  <meta name="description" content="Tarjeta digital de Tarek Mucarquer, Ejecutivo de Camiones Chevrolet en Vivipra Camiones y Buses.">
+  <title>Tarek Mucarquer | Tarjeta Digital</title>
+  <style>
+    :root {
+      --blue:#082f5b;
+      --blue-2:#0e4f8d;
+      --gold:#f5b918;
+      --ink:#132238;
+      --muted:#667085;
+      --line:#dce4ec;
+      --bg:#edf3f8;
+      --white:#ffffff;
+      --green:#25d366;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 15% 15%,rgba(245,185,24,.20),transparent 30%),
+        radial-gradient(circle at 85% 0%,rgba(14,79,141,.18),transparent 32%),
+        linear-gradient(180deg,#f8fbfd 0%,var(--bg) 100%);
+      display:flex;
+      justify-content:center;
+      padding:22px 14px 36px;
+    }
+    .page{width:min(100%,520px)}
+    .brandbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:14px;
+      padding:0 4px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--blue);
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+    .brand-icon{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      background:var(--gold);
+      display:grid;
+      place-items:center;
+      font-size:22px;
+      box-shadow:0 8px 18px rgba(245,185,24,.25);
+    }
+    .share-mini{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:999px;
+      padding:10px 13px;
+      color:var(--blue);
+      font-weight:800;
+      cursor:pointer;
+    }
+    .card{
+      background:rgba(255,255,255,.96);
+      border:1px solid rgba(220,228,236,.9);
+      border-radius:30px;
+      overflow:hidden;
+      box-shadow:0 24px 60px rgba(8,47,91,.16);
+    }
+    .hero{
+      position:relative;
+      padding:30px 24px 24px;
+      text-align:center;
+      background:
+        linear-gradient(135deg,rgba(8,47,91,.98),rgba(14,79,141,.92));
+      color:white;
+      overflow:hidden;
+    }
+    .hero:before,.hero:after{
+      content:"";
+      position:absolute;
+      border-radius:50%;
+      background:rgba(255,255,255,.06);
+    }
+    .hero:before{width:180px;height:180px;right:-80px;top:-70px}
+    .hero:after{width:120px;height:120px;left:-45px;bottom:-55px}
+    .avatar{
+      width:104px;
+      height:104px;
+      margin:0 auto 15px;
+      border-radius:28px;
+      border:4px solid rgba(255,255,255,.9);
+      background:linear-gradient(145deg,var(--gold),#ffd95c);
+      color:var(--blue);
+      display:grid;
+      place-items:center;
+      font-weight:950;
+      font-size:2rem;
+      box-shadow:0 12px 30px rgba(0,0,0,.2);
+      position:relative;
+      z-index:1;
+    }
+    h1{margin:0;font-size:2rem;line-height:1.05;position:relative;z-index:1}
+    .role{margin:9px 0 3px;font-size:1.02rem;font-weight:800;position:relative;z-index:1}
+    .company{margin:0;color:#dbeafe;font-size:.92rem;position:relative;z-index:1}
+    .chips{
+      margin-top:17px;
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:7px;
+      position:relative;
+      z-index:1;
+    }
+    .chip{
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.19);
+      color:#fff;
+      padding:7px 10px;
+      border-radius:999px;
+      font-size:.74rem;
+      font-weight:800;
+    }
+    .content{padding:20px}
+    .primary{
+      display:grid;
+      gap:10px;
+      margin-bottom:17px;
+    }
+    .btn{
+      text-decoration:none;
+      border:0;
+      border-radius:15px;
+      min-height:54px;
+      padding:13px 16px;
+      font:inherit;
+      font-weight:900;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      cursor:pointer;
+      transition:transform .15s ease,box-shadow .15s ease;
+    }
+    .btn:active{transform:scale(.985)}
+    .btn-wa{background:var(--green);color:#062c16;box-shadow:0 10px 22px rgba(37,211,102,.23)}
+    .btn-save{background:var(--gold);color:#2c2508;box-shadow:0 10px 22px rgba(245,185,24,.22)}
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-bottom:18px;
+    }
+    .action{
+      min-height:92px;
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:16px;
+      padding:14px 10px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:7px;
+      color:var(--blue);
+      text-decoration:none;
+      font-weight:900;
+      text-align:center;
+    }
+    .action .icon{font-size:24px}
+    .action small{font-weight:650;color:var(--muted);font-size:.72rem}
+    .catalog{
+      border-radius:20px;
+      padding:19px;
+      background:linear-gradient(135deg,#eef5fb,#fff);
+      border:1px solid #d8e5f0;
+    }
+    .catalog h2{font-size:1.2rem;color:var(--blue);margin:0 0 7px}
+    .catalog p{margin:0 0 14px;color:var(--muted);font-size:.88rem;line-height:1.45}
+    .catalog .btn{background:var(--blue);color:#fff;min-height:48px}
+    .contact-data{
+      margin-top:17px;
+      display:grid;
+      gap:9px;
+      padding:15px;
+      border:1px solid var(--line);
+      border-radius:17px;
+      background:#fafcfe;
+    }
+    .contact-row{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      font-size:.86rem;
+      color:#344054;
+    }
+    .contact-row b{display:block;color:var(--blue);font-size:.78rem;margin-bottom:2px}
+    .footer{
+      text-align:center;
+      color:var(--muted);
+      font-size:.75rem;
+      padding:15px 10px 4px;
+    }
+    .toast{
+      position:fixed;
+      left:50%;
+      bottom:22px;
+      transform:translate(-50%,20px);
+      background:#132238;
+      color:white;
+      padding:12px 16px;
+      border-radius:999px;
+      font-size:.82rem;
+      opacity:0;
+      pointer-events:none;
+      transition:.2s ease;
+      z-index:20;
+    }
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+    @media(max-width:390px){
+      .grid{grid-template-columns:1fr}
+      h1{font-size:1.72rem}
+      .hero{padding-left:18px;padding-right:18px}
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="brandbar">
+      <div class="brand"><span class="brand-icon">🚚</span><span>CAMIONES CHEVROLET</span></div>
+      <button class="share-mini" id="shareButton" type="button">Compartir</button>
+    </div>
+
+    <section class="card">
+      <header class="hero">
+        <div class="avatar">TM</div>
+        <h1>Tarek Mucarquer</h1>
+        <p class="role">Ejecutivo de Camiones Chevrolet</p>
+        <p class="company">Vivipra Camiones y Buses</p>
+        <div class="chips">
+          <span class="chip">Tecnología Isuzu</span>
+          <span class="chip">Financiamiento</span>
+          <span class="chip">Carrocerías</span>
+          <span class="chip">Postventa</span>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="primary">
+          <a class="btn btn-wa" href="https://wa.me/56976178442?text=Hola%20Tarek,%20vi%20tu%20tarjeta%20digital%20y%20quiero%20información%20sobre%20camiones%20Chevrolet." target="_blank" rel="noopener">
+            <span>💬</span> Escribir por WhatsApp
+          </a>
+          <a class="btn btn-save" href="tarek-mucarquer.vcf" download>
+            <span>➕</span> Guardar contacto
+          </a>
+        </div>
+
+        <div class="grid">
+          <a class="action" href="tel:+56976178442">
+            <span class="icon">📞</span>
+            <span>Llamar</span>
+            <small>+56 9 7617 8442</small>
+          </a>
+          <a class="action" href="mailto:tmucarquer@vivipra.cl?subject=Consulta%20Camiones%20Chevrolet">
+            <span class="icon">✉️</span>
+            <span>Correo</span>
+            <small>tmucarquer@vivipra.cl</small>
+          </a>
+        </div>
+
+        <section class="catalog">
+          <h2>Encuentra tu próximo camión</h2>
+          <p>Revisa modelos, compara capacidades y descarga las fichas técnicas de cada camión.</p>
+          <a class="btn" href="index.html?vendedor=tarek">Ver catálogo de camiones</a>
+        </section>
+
+        <section class="contact-data">
+          <div class="contact-row">
+            <span>👤</span>
+            <div><b>ATENCIÓN COMERCIAL</b>Tarek Mucarquer</div>
+          </div>
+          <div class="contact-row">
+            <span>🏢</span>
+            <div><b>EMPRESA</b>Vivipra Camiones y Buses</div>
+          </div>
+          <div class="contact-row">
+            <span>📱</span>
+            <div><b>WHATSAPP Y TELÉFONO</b>+56 9 7617 8442</div>
+          </div>
+          <div class="contact-row">
+            <span>📧</span>
+            <div><b>CORREO</b>tmucarquer@vivipra.cl</div>
+          </div>
+        </section>
+
+        <div class="footer">
+          Chevrolet Camiones · Elige a quien conoce el camino
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast">Enlace copiado</div>
+
+  <script>
+    const shareData = {
+      title: 'Tarek Mucarquer | Camiones Chevrolet',
+      text: 'Contacto comercial de Tarek Mucarquer, Ejecutivo de Camiones Chevrolet.',
+      url: window.location.href
+    };
+
+    const toast = document.getElementById('toast');
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+
+    document.getElementById('shareButton').addEventListener('click', async () => {
+      try {
+        if (navigator.share) {
+          await navigator.share(shareData);
+        } else {
+          await navigator.clipboard.writeText(window.location.href);
+          showToast('Enlace copiado');
+        }
+      } catch (error) {
+        if (error.name !== 'AbortError') {
+          showToast('No se pudo compartir');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
